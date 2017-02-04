@@ -36,6 +36,9 @@ public class Kruskal {
 		graph.sort(new Comparator<edge>() {
 			@Override
 			public int compare(edge o1, edge o2) {
+				if(o1.weight==o2.weight) {
+					return o1.u+o1.v+o1.weight-o2.u-o2.v-o2.weight;
+				}
 				return o1.weight-o2.weight;
 			}
 		});

@@ -33,7 +33,7 @@ public class Prim {
 			if(marked[u]) continue;
 			mincost+=ref.weight;
 			marked[u]=true;
-			for(int i=0;i<graph.size();i++) {
+			for(int i=0;i<graph.get(u).size();i++) {
 				v = graph.get(u).get(i).v;
 				if(!marked[v])
 					Q.add(graph.get(u).get(i));
