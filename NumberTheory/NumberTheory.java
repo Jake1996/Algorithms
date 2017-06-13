@@ -66,7 +66,7 @@ public class NumberTheory {
 	public static ArrayList<Integer> generatePrime(int end) {
 		boolean arr[] = new boolean[end+1];
 		ArrayList<Integer> primes = new ArrayList<>();
-		for(int i=2;i*i<=end;i++) {
+		for(int i=2;i<=end;i++) {
 			if(!arr[i]) {
 				primes.add(i);
 				for(int j=i<<1;j<=end;j+=i) {
