@@ -36,7 +36,9 @@ public class LinesAndDots {
             arr.sort((Point2D a,Point2D b)->a.compareTo(b));
             double min = Double.MAX_VALUE;
             for(int i=0;i<arr.size();i++) {
-                
+                while(arr.get(i).x-arr.get(i+1).x<min) {
+
+                }
             }
             
             return 0;
