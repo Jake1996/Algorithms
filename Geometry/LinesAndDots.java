@@ -34,7 +34,10 @@ public class LinesAndDots {
 
         public static double shortestDistance(ArrayList<Point2D> arr) {
             arr.sort((Point2D a,Point2D b)->a.compareTo(b));
-            
+            double min = Double.MAX_VALUE;
+            for(int i=0;i<arr.size();i++) {
+                
+            }
             
             return 0;
         }
