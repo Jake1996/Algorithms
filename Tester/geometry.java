@@ -11,5 +11,6 @@ public class geometry {
         ArrayList<LinesAndDots.Point2D> arr = new ArrayList<>();
         arr.add(a);
         arr.add(b);
+        System.out.println(a.compareTo(b));
     }
 }
