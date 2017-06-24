@@ -1,6 +1,5 @@
 package Geometry;
 
-
 import java.util.ArrayList;
 import java.util.Deque;
 import java.util.LinkedList;
@@ -118,7 +117,6 @@ public class LinesAndDots {
             hull.push(pop);
             hull.push(arr.get(l));
         }
-
         return (Point2D[])hull.toArray();
     }
 }
