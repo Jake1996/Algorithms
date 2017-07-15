@@ -76,6 +76,20 @@ public class NumberTheory {
 		}
 		return primes;
 	}
+	public static ArrayList<Long> generateFactors(int q) {
+		ArrayList<Long> hm = new ArrayList<>();
+		ArrayList<Integer> primes = generatePrime(q/2+1);
+        int i = 0;
+        while (q > 1) {
+            int cur = primes.get(i++);
+            if (q % cur == 0)
+                hm.add((long)cur);
+            while (q % cur == 0) {
+                q /= cur;
+            }
+        }
+        return hm;
+    }
 	public static int numOfDivisors(int n)
     {
         int count = 0;
@@ -83,10 +97,10 @@ public class NumberTheory {
         {
             if (n%i==0)
             {
-            	if (n/i == i)
-            		count++;
-            	else
+            	if (n/i != i)
             		count+=2;
+            	else
+            		count+=1;
             }
         }
         return count;    
