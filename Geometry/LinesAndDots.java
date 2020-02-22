@@ -1,4 +1,4 @@
-package Geometry;
+package Algorithms.Geometry;
 
 import java.util.ArrayList;
 import java.util.Deque;
@@ -69,7 +69,8 @@ public class LinesAndDots {
     }
 
     public static Point2D[] convexHull(ArrayList<Point2D> arr) {
-        Deque<Point2D> hull = new LinkedList<>();;
+        Deque<Point2D> hull = new LinkedList<>();
+        ;
         int l = 0;
         for (int i = 1; i < arr.size(); i++) {
             if (arr.get(i).x < arr.get(l).x) {
@@ -89,16 +90,16 @@ public class LinesAndDots {
             return 1;
         });
         hull.add(ref);
-        //check if all points are equal
+        // check if all points are equal
         for (l = 0; l < arr.size(); l++) {
             if (ref.compareTo(arr.get(l)) != 0) {
                 break;
             }
         }
 
-        //all points are equal
+        // all points are equal
         if (l == arr.size())
-            return (Point2D[])hull.toArray();
+            return (Point2D[]) hull.toArray();
         hull.add(arr.get(l++));
         for (; l < arr.size(); l++) {
             if (orientation(ref, hull.peek(), arr.get(l)) == 2) {
@@ -106,17 +107,17 @@ public class LinesAndDots {
             }
         }
         if (l == arr.size())
-            return (Point2D[])hull.toArray();
+            return (Point2D[]) hull.toArray();
         hull.add(arr.get(l++));
 
         for (; l < arr.size(); l++) {
             Point2D pop = hull.pop();
-            while(orientation(hull.peek(), pop, arr.get(l))!=2) {
+            while (orientation(hull.peek(), pop, arr.get(l)) != 2) {
                 pop = hull.pop();
             }
             hull.push(pop);
             hull.push(arr.get(l));
         }
-        return (Point2D[])hull.toArray();
+        return (Point2D[]) hull.toArray();
     }
 }

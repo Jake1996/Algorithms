@@ -1,8 +1,8 @@
-package Tester;
+package Algorithms.Tester;
 
 import java.util.ArrayList;
 
-import Geometry.LinesAndDots;
+import Algorithms.Geometry.LinesAndDots;
 
 public class geometry {
     public static void main(String args[]) {

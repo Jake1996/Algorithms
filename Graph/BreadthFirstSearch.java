@@ -1,4 +1,4 @@
-package Graph;
+package Algorithms.Graph;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -10,23 +10,24 @@ public class BreadthFirstSearch {
 
 	public static void bfs(ArrayList<ArrayList<Integer>> G) {
 		visited = new boolean[G.size()];
-		for(int i=0;i<G.size();i++) {
-			if(!visited[i]) {
+		for (int i = 0; i < G.size(); i++) {
+			if (!visited[i]) {
 				bfs(i);
 			}
 		}
 	}
+
 	public static void bfs(int v) {
 		Queue<Integer> q = new LinkedList<>();
 		q.add(v);
 		ArrayList<Integer> ref;
 		int vertex;
-		while(!q.isEmpty()) {
+		while (!q.isEmpty()) {
 			vertex = q.remove();
 			visited[vertex] = true;
 			ref = G.get(vertex);
-			for(int i:ref) {
-				if(!visited[i])
+			for (int i : ref) {
+				if (!visited[i])
 					q.add(i);
 			}
 		}

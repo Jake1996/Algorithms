@@ -1,4 +1,4 @@
-package Geometry;
+package Algorithms.Geometry;
 
 import java.util.Arrays;
 import java.util.Stack;
@@ -6,8 +6,7 @@ import java.util.Stack;
 public class GrahamScanConvexHull {
 	private Stack<Point2D> hull = new Stack<Point2D>();
 
-	public GrahamScanConvexHull(Point2D[] pts)
-	{
+	public GrahamScanConvexHull(Point2D[] pts) {
 
 		// defensive copy
 		int N = pts.length;
@@ -29,11 +28,9 @@ public class GrahamScanConvexHull {
 			if (Point2D.ccw(points[0], points[k1], points[k2]) != 0)
 				break;
 		hull.push(points[k2 - 1]); // points[k2-1] is second extreme point
-		for (int i = k2; i < N; i++)
-		{
+		for (int i = k2; i < N; i++) {
 			Point2D top = hull.pop();
-			while (Point2D.ccw(hull.peek(), top, points[i]) <= 0)
-			{
+			while (Point2D.ccw(hull.peek(), top, points[i]) <= 0) {
 				top = hull.pop();
 			}
 			hull.push(top);
@@ -42,36 +39,30 @@ public class GrahamScanConvexHull {
 		assert isConvex();
 	}
 
-	public Iterable<Point2D> hull()
-	{
+	public Iterable<Point2D> hull() {
 		Stack<Point2D> s = new Stack<Point2D>();
 		for (Point2D p : hull)
 			s.push(p);
 		return s;
 	}
 
-	private boolean isConvex()
-	{
+	private boolean isConvex() {
 		int N = hull.size();
 		if (N <= 2)
 			return true;
 
 		Point2D[] points = new Point2D[N];
 		int n = 0;
-		for (Point2D p : hull())
-		{
+		for (Point2D p : hull()) {
 			points[n++] = p;
 		}
 
-		for (int i = 0; i < N; i++)
-		{
-			if (Point2D
-					.ccw(points[i], points[(i + 1) % N], points[(i + 2) % N]) <= 0)
-			{
+		for (int i = 0; i < N; i++) {
+			if (Point2D.ccw(points[i], points[(i + 1) % N], points[(i + 2) % N]) <= 0) {
 				return false;
 			}
 		}
 		return true;
 	}
-	
+
 }
